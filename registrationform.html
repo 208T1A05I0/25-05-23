@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <!--   -->
+        <style>
+            body {
+         background-image: url("https://www.womenbuildingaustralia.com.au/sites/default/files/images/Poly_BG_Grad%20%281%29_0_1.png");
+         background-repeat: no-repeat;
+         /* background-position: center; */
+         background-attachment: fixed;        
+         color: aliceblue;    
+         }
+         
+        </style>
+</head>
+<body>
+    <div>
+        <div align="center"><br><br><br><br>
+            <h2>Register Here</h2>
+            <form id="register" method="post">
+                <!-- First Name -->
+            <label>First Name&emsp;&nbsp;: </label>&emsp;            
+            <input type="text" name="fname"
+            id="name" placeholder="Enter your first name" required>
+            <br><br>
+            <!-- Last Name -->
+            <label>Last Name &emsp;: </label>&emsp;            
+            <input type="text" name="lname"
+            id="name1" placeholder="Enter your last name" required>
+            <br><br>
+            <!-- Age -->
+            <label>Your age&emsp;&emsp;: </label>&emsp;            
+            <input type="number" name="age" 
+            id="name2" placeholder="Enter your age" required>
+            <br><br>
+            <!-- Email -->
+            <label>Email &emsp;&emsp;&emsp;: </label>&emsp;            
+            <input type="email" name="email"
+            id="name3" placeholder="Enter your email" required>
+            <br><br>
+            <!-- Password -->
+                <form onsubmit ="verifyPassword()">  
+                <!-- Enter Password -->  
+                <label>Password &emsp;&emsp;: </label>&emsp;
+                <input type = "password" id = "pswd" value = "" placeholder="Enter password" required>  <br>&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" onclick="myFunction()">Show Password                
+                </form>  <br>
+            <!-- Gender -->
+            <label>Gender &emsp;&emsp;&emsp;&emsp; : </label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <input type="radio" name="Gender"
+            id="Male">
+            <span id="Male">Male</span><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+            <input type="radio" name="Gender"
+            id="Female">
+            <span id="Female">Female</span>
+            <br><br>
+            <!-- Languages -->
+            <label>Language you know the best &emsp;: </label>&emsp;
+            <select name="languages" id="language" required>
+                <option value="C">C</option>
+                <option value="C++">C++</option>
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+            </select><br><br><br>&emsp;&emsp;
+            <!-- Reset button -->
+            <input type="button" onclick="myfun()"value="Reset">
+            <!-- Submit button -->
+            <button onclick="store()">submit</button>
+            <script>
+                function store(){
+                    var firstName=document.getElementById("name").value
+                    var lastName=document.getElementById("name1").value
+                    var age=document.getElementById("name2").value
+                    var email=document.getElementById("name3").value
+                    var pswd=document.getElementById("pswd").value
+                    var male=document.getElementById("Male").checked
+                    var female=document.getElementById("Female").checked            
+                    var lan=document.getElementById("language").value 
+                    console.log(firstName)
+                    console.log(lastName)
+                    console.log(age)
+                    console.log(email)
+                    console.log(pswd)
+                    if(male==true)
+                        gender="male"
+                    else if(female==true)
+                        gender="female"
+                    else
+                        gender=null
+                    console.log(gender)
+                    console.log(lan)
+                }
+                function myFunction() {
+                    var x = document.getElementById("pswd");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+            </script>
+            <script>  
+                function verifyPassword() {  
+                  var pw = document.getElementById("pswd").value;  
+                  //check empty password field  
+                  if(pw == "") {  
+                     document.getElementById("message").innerHTML = "**Fill the password please!";  
+                     return false;  
+                  }  
+                   
+                 //minimum password length validation  
+                  if(pw.length < 8) {  
+                     document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
+                     return false;  
+                  }  
+                  
+                //maximum length of password validation  
+                  if(pw.length > 15) {  
+                     document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
+                     return false;  
+                  } else {  
+                     alert("Password is correct");  
+                  }  
+                }  
+                </script>
+            </div>
+            </form>
+            <script>
+                function myfun() {
+                  document.getElementById("register").reset();
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
+
+
